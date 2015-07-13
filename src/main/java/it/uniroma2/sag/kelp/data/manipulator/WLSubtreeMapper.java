@@ -80,6 +80,9 @@ public class WLSubtreeMapper implements Manipulator{
 	@Override
 	public void manipulate(Example example) {
 		DirectedGraphRepresentation g = (DirectedGraphRepresentation) example.getRepresentation(this.graphRepresentation);
+		if(g==null){
+			return;
+		}
 		SparseVector featureVector = new SparseVector();
 		List<GraphNode> nodeList = g.getNodeList();
 		int nnodes = nodeList.size();
